@@ -1,13 +1,16 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const exerciseRoute = require('./routes/exercise.js');
+const exerciseRoute = require("./routes/exercise.js");
 
 const cors = require("cors");
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MLAB_URI || "mongodb://vivek:4DgR8M%27%2C@ds241055.mlab.com:41055/vivek-exercise-tracker", 
-                {useNewUrlParser: true});
+mongoose.connect(
+  process.env.MLAB_URI ||
+    "mongodb://vivek:4DgR8M%27%2C@ds241055.mlab.com:41055/vivek-exercise-tracker",
+  { useNewUrlParser: true }
+);
 
 app.use(cors());
 
@@ -19,7 +22,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-app.use('/api/exercise', exerciseRoute);
+app.use("/api/exercise", exerciseRoute);
 
 // Not found middleware
 app.use((req, res, next) => {
