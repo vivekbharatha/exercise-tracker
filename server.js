@@ -6,7 +6,8 @@ const exerciseRoute = require('./routes/exercise.js');
 const cors = require("cors");
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MLAB_URI || "mongodb://vivek:4DgR8M%27%2C@ds241055.mlab.com:41055/vivek-exercise-tracker");
+mongoose.connect(process.env.MLAB_URI || "mongodb://vivek:4DgR8M%27%2C@ds241055.mlab.com:41055/vivek-exercise-tracker", 
+                {useNewUrlParser: true});
 
 app.use(cors());
 
